@@ -17,14 +17,14 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "AuthenticationService", targetNamespace = "http://service.second.webservice.kth.se/", wsdlLocation = "http://localhost:9091/authentication?wsdl")
-public class AuthenticationService
+@WebServiceClient(name = "Authentication", targetNamespace = "http://service.second.webservice.kth.se/", wsdlLocation = "http://localhost:9091/authentication?wsdl")
+public class Authentication_Service
     extends Service
 {
 
-    private final static URL AUTHENTICATIONSERVICE_WSDL_LOCATION;
-    private final static WebServiceException AUTHENTICATIONSERVICE_EXCEPTION;
-    private final static QName AUTHENTICATIONSERVICE_QNAME = new QName("http://service.second.webservice.kth.se/", "AuthenticationService");
+    private final static URL AUTHENTICATION_WSDL_LOCATION;
+    private final static WebServiceException AUTHENTICATION_EXCEPTION;
+    private final static QName AUTHENTICATION_QNAME = new QName("http://service.second.webservice.kth.se/", "Authentication");
 
     static {
         URL url = null;
@@ -34,31 +34,31 @@ public class AuthenticationService
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
-        AUTHENTICATIONSERVICE_WSDL_LOCATION = url;
-        AUTHENTICATIONSERVICE_EXCEPTION = e;
+        AUTHENTICATION_WSDL_LOCATION = url;
+        AUTHENTICATION_EXCEPTION = e;
     }
 
-    public AuthenticationService() {
-        super(__getWsdlLocation(), AUTHENTICATIONSERVICE_QNAME);
+    public Authentication_Service() {
+        super(__getWsdlLocation(), AUTHENTICATION_QNAME);
     }
 
-    public AuthenticationService(WebServiceFeature... features) {
-        super(__getWsdlLocation(), AUTHENTICATIONSERVICE_QNAME, features);
+    public Authentication_Service(WebServiceFeature... features) {
+        super(__getWsdlLocation(), AUTHENTICATION_QNAME, features);
     }
 
-    public AuthenticationService(URL wsdlLocation) {
-        super(wsdlLocation, AUTHENTICATIONSERVICE_QNAME);
+    public Authentication_Service(URL wsdlLocation) {
+        super(wsdlLocation, AUTHENTICATION_QNAME);
     }
 
-    public AuthenticationService(URL wsdlLocation, WebServiceFeature... features) {
-        super(wsdlLocation, AUTHENTICATIONSERVICE_QNAME, features);
+    public Authentication_Service(URL wsdlLocation, WebServiceFeature... features) {
+        super(wsdlLocation, AUTHENTICATION_QNAME, features);
     }
 
-    public AuthenticationService(URL wsdlLocation, QName serviceName) {
+    public Authentication_Service(URL wsdlLocation, QName serviceName) {
         super(wsdlLocation, serviceName);
     }
 
-    public AuthenticationService(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
+    public Authentication_Service(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
         super(wsdlLocation, serviceName, features);
     }
 
@@ -85,10 +85,10 @@ public class AuthenticationService
     }
 
     private static URL __getWsdlLocation() {
-        if (AUTHENTICATIONSERVICE_EXCEPTION!= null) {
-            throw AUTHENTICATIONSERVICE_EXCEPTION;
+        if (AUTHENTICATION_EXCEPTION!= null) {
+            throw AUTHENTICATION_EXCEPTION;
         }
-        return AUTHENTICATIONSERVICE_WSDL_LOCATION;
+        return AUTHENTICATION_WSDL_LOCATION;
     }
 
 }

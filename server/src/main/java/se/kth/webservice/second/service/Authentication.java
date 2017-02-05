@@ -1,8 +1,11 @@
 package se.kth.webservice.second.service;
 
+import javax.annotation.Resource;
 import javax.jws.HandlerChain;
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
+import javax.xml.ws.WebServiceContext;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.HashMap;
@@ -11,10 +14,9 @@ import java.util.Map;
 /**
  * Created by victoraxelsson on 2017-02-05.
  */
-@WebService
+@WebService(serviceName = "Authentication", portName = "AuthenticationPort")
 @HandlerChain(file= "handler-chain.xml")
-public class Authentication {
-
+public class Authentication{
 
     private Map<String, String> users;
     private SecureRandom random;
@@ -30,6 +32,8 @@ public class Authentication {
         return new BigInteger(130, random).toString(32);
     }
 
+
+    @WebMethod
     public String login(String username, String password){
 
         System.out.println("asdjknasdkjnasdkjnasdkj");
@@ -39,6 +43,11 @@ public class Authentication {
         }else{
             return "No game dude";
         }
+    }
+
+    @WebMethod
+    public void testingHeaders(@WebParam(name="token", header=true, mode= WebParam.Mode.IN) String token){
+        System.out.println("I got the token: " + token);
     }
 
 }

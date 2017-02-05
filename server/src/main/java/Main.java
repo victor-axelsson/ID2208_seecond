@@ -1,3 +1,5 @@
+
+
 import se.kth.webservice.second.service.Authentication;
 
 import javax.xml.ws.Endpoint;
@@ -8,7 +10,8 @@ import javax.xml.ws.Endpoint;
 public class Main {
 
     public static void main(String[] args){
-        Endpoint.publish("http://localhost:9091/authentication", new Authentication());
+        Authentication auth = new Authentication();
+        Endpoint.publish("http://localhost:9091/authentication", auth);
         System.out.println("hello");
     }
 }

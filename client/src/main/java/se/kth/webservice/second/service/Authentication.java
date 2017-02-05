@@ -5,6 +5,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.Action;
 import javax.xml.ws.RequestWrapper;
@@ -41,5 +42,22 @@ public interface Authentication {
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         String arg1);
+
+    /**
+     * 
+     * @param parameters
+     * @param token
+     * @return
+     *     returns se.kth.webservice.second.service.TestingHeadersResponse
+     */
+    @WebMethod
+    @WebResult(name = "testingHeadersResponse", targetNamespace = "http://service.second.webservice.kth.se/", partName = "result")
+    @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
+    @Action(input = "http://service.second.webservice.kth.se/Authentication/testingHeadersRequest", output = "http://service.second.webservice.kth.se/Authentication/testingHeadersResponse")
+    public TestingHeadersResponse testingHeaders(
+        @WebParam(name = "testingHeaders", targetNamespace = "http://service.second.webservice.kth.se/", partName = "parameters")
+        TestingHeaders parameters,
+        @WebParam(name = "token", targetNamespace = "http://service.second.webservice.kth.se/", header = true, partName = "token")
+        String token);
 
 }
