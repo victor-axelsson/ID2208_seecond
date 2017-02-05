@@ -13,13 +13,13 @@ import java.util.Map;
  */
 @WebService
 @HandlerChain(file= "handler-chain.xml")
-public class AuthenticationService {
+public class Authentication {
 
 
     private Map<String, String> users;
     private SecureRandom random;
 
-    public AuthenticationService(){
+    public Authentication(){
         users = new HashMap<String, String>();
         users.put("victor@victor.com", "abc123");
         users.put("nick@nick.com", "abc123");
@@ -30,7 +30,6 @@ public class AuthenticationService {
         return new BigInteger(130, random).toString(32);
     }
 
-    @WebMethod
     public String login(String username, String password){
 
         System.out.println("asdjknasdkjnasdkjnasdkj");
