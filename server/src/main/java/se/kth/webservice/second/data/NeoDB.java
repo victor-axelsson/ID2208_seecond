@@ -80,23 +80,24 @@ public class NeoDB {
         return start;
     }
 
-    public List<TravelPath> getRoutes(){
+    public List<TravelPath> getRoutes(String fromAirportId, String toAirportId){
 
-        StatementResult result = session.run("MATCH path = \n" +
-                "(a1:Airport {id:'12'})-[:OUTGOING_FLIGHT]->(:Route)-[:INCOMMING_FLIGHT]->\n" +
-                "(:Airport)-[:OUTGOING_FLIGHT]->(:Route)-[:INCOMMING_FLIGHT]->\n" +
-                "(:Airport)-[:OUTGOING_FLIGHT]->(:Route)-[:INCOMMING_FLIGHT]->\n" +
-                "(:Airport)-[:OUTGOING_FLIGHT]->(:Route)-[:INCOMMING_FLIGHT]->\n" +
-                "(:Airport)-[:OUTGOING_FLIGHT]->(:Route)-[:INCOMMING_FLIGHT]->\n" +
-                "(:Airport)-[:OUTGOING_FLIGHT]->(:Route)-[:INCOMMING_FLIGHT]->\n" +
-                "(a3:Airport {id: '55'}) return path");
-
+        //From = 12, to = 55;
 
         /*
-        StatementResult result = session.run(
-                "MATCH (a:Person) WHERE a.name = {name} RETURN a.name AS name, a.title AS title",
-                parameters( "name", "Arthur" ));
-        */
+        StatementResult result = session.run("MATCH path = \n" +
+                "(a1:Airport {id: {fromId}})-[:OUTGOING_FLIGHT]->(:Route)-[:INCOMMING_FLIGHT]->\n" +
+                "(:Airport)-[:OUTGOING_FLIGHT]->(:Route)-[:INCOMMING_FLIGHT]->\n" +
+                "(:Airport)-[:OUTGOING_FLIGHT]->(:Route)-[:INCOMMING_FLIGHT]->\n" +
+                "(:Airport)-[:OUTGOING_FLIGHT]->(:Route)-[:INCOMMING_FLIGHT]->\n" +
+                "(:Airport)-[:OUTGOING_FLIGHT]->(:Route)-[:INCOMMING_FLIGHT]->\n" +
+                "(:Airport)-[:OUTGOING_FLIGHT]->(:Route)-[:INCOMMING_FLIGHT]->\n" +
+                "(a3:Airport {id: {toId}}) return path",
+                parameters("fromId", fromAirportId, "toId", toAirportId));
+                */
+
+        String query = "MATCH (a:Airport { id: {fromId} }),(b:Airport { id: {toId} }), path = shortestPath((a)-[*..15]->(b)) RETURN path";
+        StatementResult result = session.run(query, parameters("fromId", fromAirportId, "toId", toAirportId));
 
 
         List<TravelPath> availableTravelPaths = new ArrayList<TravelPath>();

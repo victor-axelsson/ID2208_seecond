@@ -39,7 +39,7 @@ public class Main {
         authPort.testingHeaders(new TestingHeaders(), "abc123123");
 
 
-        List<TravelPath> paths = itineraryPort.getAvailableItineraries("YRT", "YEK");
+        List<TravelPath> paths = itineraryPort.getAvailableItineraries("12", "55");
 
         /*
         Airport airportSource = itineraryPort.getAirportById(route.getSourceAirportId());
@@ -47,7 +47,7 @@ public class Main {
         Airline airline = itineraryPort.getAirlineById(route.getAirlineId());
         */
 
-        
+
 
 
         System.out.println("ALl done");

@@ -27,8 +27,8 @@ public class Itinerary {
     }
 
     @WebMethod
-    public List<TravelPath> getAvailableItineraries(String from, String to){
-        return neoDB.getRoutes();
+    public List<TravelPath> getAvailableItineraries(String fromAirportId, String toAirportId){
+        return neoDB.getRoutes(fromAirportId, toAirportId);
     }
 
     @WebMethod
