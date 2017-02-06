@@ -39,13 +39,15 @@ public class Main {
         authPort.testingHeaders(new TestingHeaders(), "abc123123");
 
 
-        Route route =  itineraryPort.getAvailableItineraries("YRT", "YEK").get(0);
+        List<TravelPath> paths = itineraryPort.getAvailableItineraries("YRT", "YEK");
+
+        /*
         Airport airportSource = itineraryPort.getAirportById(route.getSourceAirportId());
         Airport airportDestination = itineraryPort.getAirportById(route.getDestinationAirportId());
         Airline airline = itineraryPort.getAirlineById(route.getAirlineId());
+        */
 
-
-
+        
 
 
         System.out.println("ALl done");

@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://service.second.webservice.kth.se/}route" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://service.second.webservice.kth.se/}travelPath" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 public class GetAvailableItinerariesResponse {
 
     @XmlElement(name = "return")
-    protected List<Route> _return;
+    protected List<TravelPath> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class GetAvailableItinerariesResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Route }
+     * {@link TravelPath }
      * 
      * 
      */
-    public List<Route> getReturn() {
+    public List<TravelPath> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<Route>();
+            _return = new ArrayList<TravelPath>();
         }
         return this._return;
     }

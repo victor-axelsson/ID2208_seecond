@@ -87,11 +87,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Route }
+     * Create an instance of {@link TravelPath }
      * 
      */
-    public Route createRoute() {
-        return new Route();
+    public TravelPath createTravelPath() {
+        return new TravelPath();
     }
 
     /**

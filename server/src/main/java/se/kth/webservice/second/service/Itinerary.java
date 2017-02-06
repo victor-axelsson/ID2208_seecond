@@ -1,9 +1,11 @@
 package se.kth.webservice.second.service;
 
 import se.kth.webservice.second.data.FlightDatabase;
+import se.kth.webservice.second.data.NeoDB;
 import se.kth.webservice.second.models.Airline;
 import se.kth.webservice.second.models.Airport;
 import se.kth.webservice.second.models.Route;
+import se.kth.webservice.second.models.TravelPath;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -17,15 +19,16 @@ import java.util.List;
 public class Itinerary {
 
     FlightDatabase db;
+    NeoDB neoDB;
 
     public Itinerary(){
         db = new FlightDatabase();
+        neoDB = new NeoDB();
     }
 
-
     @WebMethod
-    public List<Route> getAvailableItineraries(String from, String to){
-        return db.getRoute(from, to);
+    public List<TravelPath> getAvailableItineraries(String from, String to){
+        return neoDB.getRoutes();
     }
 
     @WebMethod

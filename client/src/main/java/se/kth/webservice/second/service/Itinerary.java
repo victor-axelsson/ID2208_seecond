@@ -30,14 +30,14 @@ public interface Itinerary {
      * @param arg1
      * @param arg0
      * @return
-     *     returns java.util.List<se.kth.webservice.second.service.Route>
+     *     returns java.util.List<se.kth.webservice.second.service.TravelPath>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "getAvailableItineraries", targetNamespace = "http://service.second.webservice.kth.se/", className = "se.kth.webservice.second.service.GetAvailableItineraries")
     @ResponseWrapper(localName = "getAvailableItinerariesResponse", targetNamespace = "http://service.second.webservice.kth.se/", className = "se.kth.webservice.second.service.GetAvailableItinerariesResponse")
     @Action(input = "http://service.second.webservice.kth.se/Itinerary/getAvailableItinerariesRequest", output = "http://service.second.webservice.kth.se/Itinerary/getAvailableItinerariesResponse")
-    public List<Route> getAvailableItineraries(
+    public List<TravelPath> getAvailableItineraries(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
