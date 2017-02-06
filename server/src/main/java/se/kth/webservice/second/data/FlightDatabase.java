@@ -1,9 +1,6 @@
 package se.kth.webservice.second.data;
 
-import se.kth.webservice.second.models.Airline;
-import se.kth.webservice.second.models.Airport;
-import se.kth.webservice.second.models.Departure;
-import se.kth.webservice.second.models.Route;
+import se.kth.webservice.second.models.*;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -233,5 +230,26 @@ public class FlightDatabase extends Database {
         }
 
         return departures;
+    }
+
+    public Booking saveBooking(Booking booking) {
+        PreparedStatement prepared = getPreparedStatement("insert into bookings (departureId, cardNr, issued) VALUES (?, ?, ?)");
+        try {
+            prepared.setInt(1, booking.getDepartureId());
+            prepared.setString(2, booking.getCardNumber());
+            prepared.setBoolean(3, booking.isIssued());
+            prepared.execute();
+
+            ResultSet rs = prepared.getGeneratedKeys();
+            if (rs.next()) {
+                int id = rs.getInt(1);
+                booking.setId(id);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return booking;
     }
 }

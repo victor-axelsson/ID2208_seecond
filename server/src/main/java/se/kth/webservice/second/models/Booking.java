@@ -5,8 +5,9 @@ package se.kth.webservice.second.models;
  */
 public class Booking {
     private int id;
-    private int flightId;
+    private int departureId;
     private String cardNumber;
+    private boolean issued;
 
     public Booking() {
     }
@@ -15,7 +16,7 @@ public class Booking {
     public String toString() {
         return "Booking{" +
                 "id=" + id +
-                ", flightId=" + flightId +
+                ", departureId=" + departureId +
                 ", cardNumber='" + cardNumber + '\'' +
                 '}';
     }
@@ -28,24 +29,24 @@ public class Booking {
         Booking booking = (Booking) o;
 
         if (id != booking.id) return false;
-        if (flightId != booking.flightId) return false;
+        if (departureId != booking.departureId) return false;
         return (cardNumber != null ? !cardNumber.equals(booking.cardNumber) : booking.cardNumber != null);
     }
 
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + flightId;
+        result = 31 * result + departureId;
         result = 31 * result + (cardNumber != null ? cardNumber.hashCode() : 0);
         return result;
     }
 
-    public int getFlightId() {
-        return flightId;
+    public boolean isIssued() {
+        return issued;
     }
 
-    public void setFlightId(int flightId) {
-        this.flightId = flightId;
+    public void setIssued(boolean issued) {
+        this.issued = issued;
     }
 
     public int getId() {
@@ -56,9 +57,18 @@ public class Booking {
         this.id = id;
     }
 
+    public int getDepartureId() {
+        return departureId;
+    }
+
     public String getCardNumber() {
         return cardNumber;
     }
+
+    public void setDepartureId(int departureId) {
+        this.departureId = departureId;
+    }
+
 
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
