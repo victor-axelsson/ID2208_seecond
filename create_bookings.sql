@@ -5,7 +5,7 @@
 CREATE TABLE public.bookings
 (
     id bigint NOT NULL,
-    "flightId" bigint,
+    "departureId" bigint,
     "cardNumber" character varying(16) COLLATE pg_catalog."default",
     CONSTRAINT bookings_pkey PRIMARY KEY (id)
 )

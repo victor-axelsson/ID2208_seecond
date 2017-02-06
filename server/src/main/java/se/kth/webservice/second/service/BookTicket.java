@@ -23,8 +23,10 @@ public class BookTicket {
         //TODO check available places on flight by id
         Booking booking = new Booking();
         booking.setCardNumber(creditCard);
-        booking.setFlightId(flightId);
-        //TODO save booking
-        return booking;
+        booking.setDepartureId(flightId);
+        booking.setIssued(false);
+
+        return db.saveBooking(booking);
+
     }
 }

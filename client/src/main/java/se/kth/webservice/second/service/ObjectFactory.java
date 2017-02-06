@@ -24,14 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetAvailableItinerariesResponse_QNAME = new QName("http://service.second.webservice.kth.se/", "getAvailableItinerariesResponse");
-    private final static QName _GetAirlineById_QNAME = new QName("http://service.second.webservice.kth.se/", "getAirlineById");
-    private final static QName _GetAvailableItineraries_QNAME = new QName("http://service.second.webservice.kth.se/", "getAvailableItineraries");
-    private final static QName _GetAirportById_QNAME = new QName("http://service.second.webservice.kth.se/", "getAirportById");
-    private final static QName _GetDeparturesFromRoute_QNAME = new QName("http://service.second.webservice.kth.se/", "getDeparturesFromRoute");
-    private final static QName _GetDeparturesFromRouteResponse_QNAME = new QName("http://service.second.webservice.kth.se/", "getDeparturesFromRouteResponse");
-    private final static QName _GetAirportByIdResponse_QNAME = new QName("http://service.second.webservice.kth.se/", "getAirportByIdResponse");
-    private final static QName _GetAirlineByIdResponse_QNAME = new QName("http://service.second.webservice.kth.se/", "getAirlineByIdResponse");
+    private final static QName _BookTicket_QNAME = new QName("http://service.second.webservice.kth.se/", "bookTicket");
+    private final static QName _BookTicketResponse_QNAME = new QName("http://service.second.webservice.kth.se/", "bookTicketResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: se.kth.webservice.second.service
@@ -41,171 +35,45 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetAirlineById }
+     * Create an instance of {@link BookTicket_Type }
      * 
      */
-    public GetAirlineById createGetAirlineById() {
-        return new GetAirlineById();
+    public BookTicket_Type createBookTicket_Type() {
+        return new BookTicket_Type();
     }
 
     /**
-     * Create an instance of {@link GetAvailableItineraries }
+     * Create an instance of {@link BookTicketResponse }
      * 
      */
-    public GetAvailableItineraries createGetAvailableItineraries() {
-        return new GetAvailableItineraries();
+    public BookTicketResponse createBookTicketResponse() {
+        return new BookTicketResponse();
     }
 
     /**
-     * Create an instance of {@link GetAvailableItinerariesResponse }
+     * Create an instance of {@link Booking }
      * 
      */
-    public GetAvailableItinerariesResponse createGetAvailableItinerariesResponse() {
-        return new GetAvailableItinerariesResponse();
+    public Booking createBooking() {
+        return new Booking();
     }
 
     /**
-     * Create an instance of {@link GetAirlineByIdResponse }
+     * Create an instance of {@link JAXBElement }{@code <}{@link BookTicket_Type }{@code >}}
      * 
      */
-    public GetAirlineByIdResponse createGetAirlineByIdResponse() {
-        return new GetAirlineByIdResponse();
+    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "bookTicket")
+    public JAXBElement<BookTicket_Type> createBookTicket(BookTicket_Type value) {
+        return new JAXBElement<BookTicket_Type>(_BookTicket_QNAME, BookTicket_Type.class, null, value);
     }
 
     /**
-     * Create an instance of {@link GetAirportByIdResponse }
+     * Create an instance of {@link JAXBElement }{@code <}{@link BookTicketResponse }{@code >}}
      * 
      */
-    public GetAirportByIdResponse createGetAirportByIdResponse() {
-        return new GetAirportByIdResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetAirportById }
-     * 
-     */
-    public GetAirportById createGetAirportById() {
-        return new GetAirportById();
-    }
-
-    /**
-     * Create an instance of {@link GetDeparturesFromRoute }
-     * 
-     */
-    public GetDeparturesFromRoute createGetDeparturesFromRoute() {
-        return new GetDeparturesFromRoute();
-    }
-
-    /**
-     * Create an instance of {@link GetDeparturesFromRouteResponse }
-     * 
-     */
-    public GetDeparturesFromRouteResponse createGetDeparturesFromRouteResponse() {
-        return new GetDeparturesFromRouteResponse();
-    }
-
-    /**
-     * Create an instance of {@link Departure }
-     * 
-     */
-    public Departure createDeparture() {
-        return new Departure();
-    }
-
-    /**
-     * Create an instance of {@link TravelPath }
-     * 
-     */
-    public TravelPath createTravelPath() {
-        return new TravelPath();
-    }
-
-    /**
-     * Create an instance of {@link Airline }
-     * 
-     */
-    public Airline createAirline() {
-        return new Airline();
-    }
-
-    /**
-     * Create an instance of {@link Airport }
-     * 
-     */
-    public Airport createAirport() {
-        return new Airport();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAvailableItinerariesResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "getAvailableItinerariesResponse")
-    public JAXBElement<GetAvailableItinerariesResponse> createGetAvailableItinerariesResponse(GetAvailableItinerariesResponse value) {
-        return new JAXBElement<GetAvailableItinerariesResponse>(_GetAvailableItinerariesResponse_QNAME, GetAvailableItinerariesResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAirlineById }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "getAirlineById")
-    public JAXBElement<GetAirlineById> createGetAirlineById(GetAirlineById value) {
-        return new JAXBElement<GetAirlineById>(_GetAirlineById_QNAME, GetAirlineById.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAvailableItineraries }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "getAvailableItineraries")
-    public JAXBElement<GetAvailableItineraries> createGetAvailableItineraries(GetAvailableItineraries value) {
-        return new JAXBElement<GetAvailableItineraries>(_GetAvailableItineraries_QNAME, GetAvailableItineraries.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAirportById }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "getAirportById")
-    public JAXBElement<GetAirportById> createGetAirportById(GetAirportById value) {
-        return new JAXBElement<GetAirportById>(_GetAirportById_QNAME, GetAirportById.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetDeparturesFromRoute }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "getDeparturesFromRoute")
-    public JAXBElement<GetDeparturesFromRoute> createGetDeparturesFromRoute(GetDeparturesFromRoute value) {
-        return new JAXBElement<GetDeparturesFromRoute>(_GetDeparturesFromRoute_QNAME, GetDeparturesFromRoute.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetDeparturesFromRouteResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "getDeparturesFromRouteResponse")
-    public JAXBElement<GetDeparturesFromRouteResponse> createGetDeparturesFromRouteResponse(GetDeparturesFromRouteResponse value) {
-        return new JAXBElement<GetDeparturesFromRouteResponse>(_GetDeparturesFromRouteResponse_QNAME, GetDeparturesFromRouteResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAirportByIdResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "getAirportByIdResponse")
-    public JAXBElement<GetAirportByIdResponse> createGetAirportByIdResponse(GetAirportByIdResponse value) {
-        return new JAXBElement<GetAirportByIdResponse>(_GetAirportByIdResponse_QNAME, GetAirportByIdResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAirlineByIdResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "getAirlineByIdResponse")
-    public JAXBElement<GetAirlineByIdResponse> createGetAirlineByIdResponse(GetAirlineByIdResponse value) {
-        return new JAXBElement<GetAirlineByIdResponse>(_GetAirlineByIdResponse_QNAME, GetAirlineByIdResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "bookTicketResponse")
+    public JAXBElement<BookTicketResponse> createBookTicketResponse(BookTicketResponse value) {
+        return new JAXBElement<BookTicketResponse>(_BookTicketResponse_QNAME, BookTicketResponse.class, null, value);
     }
 
 }

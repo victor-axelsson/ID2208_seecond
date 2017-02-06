@@ -86,7 +86,7 @@ public abstract class Database {
         connection = getConnection();
         PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException e) {
             e.printStackTrace();
         }

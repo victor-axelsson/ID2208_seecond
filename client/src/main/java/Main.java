@@ -27,6 +27,10 @@ public class Main {
         ItineraryService itineraryService = new ItineraryService();
         Itinerary itineraryPort =  itineraryService.getItineraryPort();
 
+        BookTicketService bookingService = new BookTicketService();
+        BookTicket bookingPort = bookingService.getBookTicketPort();
+
+
         //Add client handlers
         Binding binding = ((BindingProvider)authPort).getBinding();
         List<Handler> handlerList = binding.getHandlerChain();
@@ -45,6 +49,7 @@ public class Main {
         List<Departure> departures = itineraryPort.getDeparturesFromRoute(Integer.parseInt(routeId));
 
 
+        Booking booking = bookingPort.bookTicket(270819, "123123123123123123");
 
 
         /*
