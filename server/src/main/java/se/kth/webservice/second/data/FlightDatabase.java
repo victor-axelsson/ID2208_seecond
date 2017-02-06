@@ -2,6 +2,7 @@ package se.kth.webservice.second.data;
 
 import se.kth.webservice.second.models.Airline;
 import se.kth.webservice.second.models.Airport;
+import se.kth.webservice.second.models.Departure;
 import se.kth.webservice.second.models.Route;
 
 import java.sql.PreparedStatement;
@@ -89,6 +90,77 @@ public class FlightDatabase extends Database {
         }
 
         return airport;
+    }
+
+    private String stringifyInt(int nbr){
+        return nbr < 10 ? "0" + nbr : nbr + "";
+    }
+
+    private Departure getRandomDeparture(Route r){
+        Departure departure = new Departure();
+        departure.setDestinationPortId(r.getDestinationAirportId());
+        departure.setPortSourceId(r.getSourceAirportId());
+
+        int month = getRandomInt(1, 12);
+        int day = getRandomInt(1, 28);
+        int hour = getRandomInt(0, 23);
+        int minutes = getRandomInt(0, 59);
+        String lift = "2017-" + stringifyInt(month) +  "-" + stringifyInt(day) + ", " + stringifyInt(hour) + ":" + stringifyInt(minutes);
+
+        int landingHour = getRandomInt(hour, 23);
+        int landingMinute = getRandomInt(minutes, 59);
+        String lands = "2017-" + stringifyInt(month) +  "-" + stringifyInt(day) + ", " + stringifyInt(landingHour) + ":" + stringifyInt(landingMinute);
+
+        departure.setLifts(lift);
+        departure.setLands(lands);
+
+        return departure;
+    }
+
+    private void saveDeparture(Departure departure) throws SQLException {
+        PreparedStatement prepared = getPreparedStatement("insert into departures (lifts, lands, sourceAirportId, destinationAirportId) VALUES (?, ?, ?, ?)");
+        prepared.setString(1, departure.getLifts());
+        prepared.setString(2, departure.getLands());
+        prepared.setInt(3, departure.getPortSourceId());
+        prepared.setInt(4, departure.getDestinationPortId());
+        prepared.execute();
+    }
+
+    public void mockSomeTickets(){
+        try {
+            PreparedStatement prepared = getPreparedStatement("select * from routes");
+
+            ResultSet rs = prepared.executeQuery();
+            while(rs.next()){
+                Route r = new Route();
+
+                r.setAirline(rs.getString(1));
+                r.setAirlineId(rs.getInt(2));
+                r.setSourceAirport(rs.getString(3));
+                r.setSourceAirportId(rs.getInt(4));
+                r.setDestinationAirport(rs.getString(5));
+                r.setDestinationAirportId(rs.getInt(6));
+                r.setCodeshare(rs.getString(7));
+                r.setStops(rs.getInt(8));
+                r.setEquipment(rs.getString(9));
+
+
+                Departure departure1 = getRandomDeparture(r);
+                Departure departure2 = getRandomDeparture(r);
+                Departure departure3 = getRandomDeparture(r);
+                Departure departure4 = getRandomDeparture(r);
+
+                saveDeparture(departure1);
+                saveDeparture(departure2);
+                saveDeparture(departure3);
+                saveDeparture(departure4);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            safeCloseConnection();
+        }
     }
 
     public Airline getAirlineById(int id){

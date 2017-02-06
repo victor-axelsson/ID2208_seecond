@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
+import java.util.Random;
 
 /**
  * Created by victoraxelsson on 2017-02-06.
@@ -14,8 +15,17 @@ public abstract class Database {
     private static final String USER = "root";
     private static final String PASS = "root";
     Connection connection;
+    Random rand;
 
-    public Database(){}
+    public Database(){
+        rand = new Random();
+    }
+
+    protected int getRandomInt(int low, int high){
+        return rand.nextInt(high-low) + low;
+    }
+
+
 
     protected String doHash(String src){
         MessageDigest md = null;
@@ -41,18 +51,20 @@ public abstract class Database {
 
 
     protected Connection getConnection(){
-        Connection connection = null;
-        try {
-            Class.forName(JDBC_DRIVER).newInstance();
-            connection = DriverManager.getConnection(DB_URL, USER, PASS);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+
+        if(connection == null){
+            try {
+                Class.forName(JDBC_DRIVER).newInstance();
+                connection = DriverManager.getConnection(DB_URL, USER, PASS);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
 
         return connection;
