@@ -49,7 +49,9 @@ public class Main {
         List<Departure> departures = itineraryPort.getDeparturesFromRoute(Integer.parseInt(routeId));
 
 
-        Booking booking = bookingPort.bookTicket(270819, "123123123123123123");
+        Booking booking = bookingPort.bookTicket(departures.get(0).getId(), "123123123123123123");
+
+
 
 
         /*
