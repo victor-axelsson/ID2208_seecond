@@ -19,6 +19,7 @@ public class Route {
     * */
 
 
+    private int id;
     private String airline;
     private int airlineId;
     private String sourceAirport;
@@ -29,18 +30,12 @@ public class Route {
     private int stops;
     private String equipment;
 
-    public String print() {
-        return "Route{" +
-                "airline='" + airline + '\'' +
-                ", airlineId=" + airlineId +
-                ", sourceAirport='" + sourceAirport + '\'' +
-                ", sourceAirportId=" + sourceAirportId +
-                ", destinationAirport='" + destinationAirport + '\'' +
-                ", destinationAirportId=" + destinationAirportId +
-                ", codeshare='" + codeshare + '\'' +
-                ", stops=" + stops +
-                ", equipment='" + equipment + '\'' +
-                '}';
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getAirline() {

@@ -2,10 +2,7 @@ package se.kth.webservice.second.service;
 
 import se.kth.webservice.second.data.FlightDatabase;
 import se.kth.webservice.second.data.NeoDB;
-import se.kth.webservice.second.models.Airline;
-import se.kth.webservice.second.models.Airport;
-import se.kth.webservice.second.models.Route;
-import se.kth.webservice.second.models.TravelPath;
+import se.kth.webservice.second.models.*;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -40,4 +37,12 @@ public class Itinerary {
     public Airline getAirlineById(int id){
         return db.getAirlineById(id);
     }
+
+    @WebMethod
+    public List<Departure> getDeparturesFromRoute(int routeId){
+        return db.getDeparturesFromRouteId(routeId);
+    }
+
+
+
 }

@@ -32,15 +32,16 @@ public class FlightDatabase extends Database {
             ResultSet rs = prepared.executeQuery();
             while(rs.next()){
                 Route r = new Route();
-                r.setAirline(rs.getString(1));
-                r.setAirlineId(rs.getInt(2));
-                r.setSourceAirport(rs.getString(3));
-                r.setSourceAirportId(rs.getInt(4));
-                r.setDestinationAirport(rs.getString(5));
-                r.setDestinationAirportId(rs.getInt(6));
-                r.setCodeshare(rs.getString(7));
-                r.setStops(rs.getInt(8));
-                r.setEquipment(rs.getString(9));
+                r.setId(rs.getInt(1));
+                r.setAirline(rs.getString(2));
+                r.setAirlineId(rs.getInt(3));
+                r.setSourceAirport(rs.getString(4));
+                r.setSourceAirportId(rs.getInt(5));
+                r.setDestinationAirport(rs.getString(6));
+                r.setDestinationAirportId(rs.getInt(7));
+                r.setCodeshare(rs.getString(8));
+                r.setStops(rs.getInt(9));
+                r.setEquipment(rs.getString(10));
                 routes.add(r);
             }
         } catch (SQLException e) {
@@ -98,8 +99,7 @@ public class FlightDatabase extends Database {
 
     private Departure getRandomDeparture(Route r){
         Departure departure = new Departure();
-        departure.setDestinationPortId(r.getDestinationAirportId());
-        departure.setPortSourceId(r.getSourceAirportId());
+        departure.setRouteId(r.getId());
 
         int month = getRandomInt(1, 12);
         int day = getRandomInt(1, 28);
@@ -118,11 +118,11 @@ public class FlightDatabase extends Database {
     }
 
     private void saveDeparture(Departure departure) throws SQLException {
-        PreparedStatement prepared = getPreparedStatement("insert into departures (lifts, lands, sourceAirportId, destinationAirportId) VALUES (?, ?, ?, ?)");
+        PreparedStatement prepared = getPreparedStatement("insert into departures (lifts, lands, routeId) VALUES (?, ?, ?)");
         prepared.setString(1, departure.getLifts());
         prepared.setString(2, departure.getLands());
-        prepared.setInt(3, departure.getPortSourceId());
-        prepared.setInt(4, departure.getDestinationPortId());
+        prepared.setInt(3, departure.getRouteId());
+
         prepared.execute();
     }
 
@@ -134,15 +134,16 @@ public class FlightDatabase extends Database {
             while(rs.next()){
                 Route r = new Route();
 
-                r.setAirline(rs.getString(1));
-                r.setAirlineId(rs.getInt(2));
-                r.setSourceAirport(rs.getString(3));
-                r.setSourceAirportId(rs.getInt(4));
-                r.setDestinationAirport(rs.getString(5));
-                r.setDestinationAirportId(rs.getInt(6));
-                r.setCodeshare(rs.getString(7));
-                r.setStops(rs.getInt(8));
-                r.setEquipment(rs.getString(9));
+                r.setId(rs.getInt(1));
+                r.setAirline(rs.getString(2));
+                r.setAirlineId(rs.getInt(3));
+                r.setSourceAirport(rs.getString(4));
+                r.setSourceAirportId(rs.getInt(5));
+                r.setDestinationAirport(rs.getString(6));
+                r.setDestinationAirportId(rs.getInt(7));
+                r.setCodeshare(rs.getString(8));
+                r.setStops(rs.getInt(9));
+                r.setEquipment(rs.getString(10));
 
 
                 Departure departure1 = getRandomDeparture(r);
@@ -190,5 +191,34 @@ public class FlightDatabase extends Database {
         }
 
         return airline;
+    }
+
+    public List<Departure> getDeparturesFromRouteId(int routeId) {
+
+
+        List<Departure> departures = new ArrayList<Departure>();
+
+        try {
+            PreparedStatement prepared = getPreparedStatement("select * from departures where routeId = ?");
+            prepared.setInt(1, routeId);
+
+            ResultSet rs = prepared.executeQuery();
+
+            while(rs.next()){
+               Departure d = new Departure();
+               d.setId(rs.getInt(1));
+               d.setLifts(rs.getString(2));
+               d.setLands(rs.getString(3));
+               d.setRouteId(rs.getInt(4));
+
+                departures.add(d);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            safeCloseConnection();
+        }
+
+        return departures;
     }
 }

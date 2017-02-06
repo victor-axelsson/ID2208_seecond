@@ -41,6 +41,12 @@ public class Main {
 
         List<TravelPath> paths = itineraryPort.getAvailableItineraries("12", "55");
 
+        String routeId =  paths.get(0).getRouteId();
+        List<Departure> departures = itineraryPort.getDeparturesFromRoute(Integer.parseInt(routeId));
+
+
+
+
         /*
         Airport airportSource = itineraryPort.getAirportById(route.getSourceAirportId());
         Airport airportDestination = itineraryPort.getAirportById(route.getDestinationAirportId());

@@ -4,25 +4,25 @@ package se.kth.webservice.second.models;
  * Created by victoraxelsson on 2017-02-06.
  */
 public class Departure {
-    int portSourceId;
-    int destinationPortId;
+    int id;
+    int routeId;
     String lifts;
     String lands;
 
-    public int getPortSourceId() {
-        return portSourceId;
+    public int getId() {
+        return id;
     }
 
-    public void setPortSourceId(int portSourceId) {
-        this.portSourceId = portSourceId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getDestinationPortId() {
-        return destinationPortId;
+    public int getRouteId() {
+        return routeId;
     }
 
-    public void setDestinationPortId(int destinationPortId) {
-        this.destinationPortId = destinationPortId;
+    public void setRouteId(int routeId) {
+        this.routeId = routeId;
     }
 
     public String getLifts() {

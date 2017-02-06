@@ -73,4 +73,19 @@ public interface Itinerary {
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0);
 
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<se.kth.webservice.second.service.Departure>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getDeparturesFromRoute", targetNamespace = "http://service.second.webservice.kth.se/", className = "se.kth.webservice.second.service.GetDeparturesFromRoute")
+    @ResponseWrapper(localName = "getDeparturesFromRouteResponse", targetNamespace = "http://service.second.webservice.kth.se/", className = "se.kth.webservice.second.service.GetDeparturesFromRouteResponse")
+    @Action(input = "http://service.second.webservice.kth.se/Itinerary/getDeparturesFromRouteRequest", output = "http://service.second.webservice.kth.se/Itinerary/getDeparturesFromRouteResponse")
+    public List<Departure> getDeparturesFromRoute(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
+
 }

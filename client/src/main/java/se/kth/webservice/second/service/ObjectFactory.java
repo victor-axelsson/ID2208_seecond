@@ -28,6 +28,8 @@ public class ObjectFactory {
     private final static QName _GetAirlineById_QNAME = new QName("http://service.second.webservice.kth.se/", "getAirlineById");
     private final static QName _GetAvailableItineraries_QNAME = new QName("http://service.second.webservice.kth.se/", "getAvailableItineraries");
     private final static QName _GetAirportById_QNAME = new QName("http://service.second.webservice.kth.se/", "getAirportById");
+    private final static QName _GetDeparturesFromRoute_QNAME = new QName("http://service.second.webservice.kth.se/", "getDeparturesFromRoute");
+    private final static QName _GetDeparturesFromRouteResponse_QNAME = new QName("http://service.second.webservice.kth.se/", "getDeparturesFromRouteResponse");
     private final static QName _GetAirportByIdResponse_QNAME = new QName("http://service.second.webservice.kth.se/", "getAirportByIdResponse");
     private final static QName _GetAirlineByIdResponse_QNAME = new QName("http://service.second.webservice.kth.se/", "getAirlineByIdResponse");
 
@@ -84,6 +86,30 @@ public class ObjectFactory {
      */
     public GetAirportById createGetAirportById() {
         return new GetAirportById();
+    }
+
+    /**
+     * Create an instance of {@link GetDeparturesFromRoute }
+     * 
+     */
+    public GetDeparturesFromRoute createGetDeparturesFromRoute() {
+        return new GetDeparturesFromRoute();
+    }
+
+    /**
+     * Create an instance of {@link GetDeparturesFromRouteResponse }
+     * 
+     */
+    public GetDeparturesFromRouteResponse createGetDeparturesFromRouteResponse() {
+        return new GetDeparturesFromRouteResponse();
+    }
+
+    /**
+     * Create an instance of {@link Departure }
+     * 
+     */
+    public Departure createDeparture() {
+        return new Departure();
     }
 
     /**
@@ -144,6 +170,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "getAirportById")
     public JAXBElement<GetAirportById> createGetAirportById(GetAirportById value) {
         return new JAXBElement<GetAirportById>(_GetAirportById_QNAME, GetAirportById.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDeparturesFromRoute }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "getDeparturesFromRoute")
+    public JAXBElement<GetDeparturesFromRoute> createGetDeparturesFromRoute(GetDeparturesFromRoute value) {
+        return new JAXBElement<GetDeparturesFromRoute>(_GetDeparturesFromRoute_QNAME, GetDeparturesFromRoute.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDeparturesFromRouteResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "getDeparturesFromRouteResponse")
+    public JAXBElement<GetDeparturesFromRouteResponse> createGetDeparturesFromRouteResponse(GetDeparturesFromRouteResponse value) {
+        return new JAXBElement<GetDeparturesFromRouteResponse>(_GetDeparturesFromRouteResponse_QNAME, GetDeparturesFromRouteResponse.class, null, value);
     }
 
     /**

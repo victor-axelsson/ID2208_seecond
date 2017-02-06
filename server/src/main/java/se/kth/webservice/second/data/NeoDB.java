@@ -50,7 +50,7 @@ public class NeoDB {
                 Node endNode = nodeMap.get(r.endNodeId() + "");
 
                 TravelPath tp = new TravelPath();
-                tp.setRouteId(endNode.id() + "");
+                tp.setRouteId((endNode.get("id") + "").replaceAll("\"", ""));
                 if(previous != null){
                     previous.setNext(tp);
                 }
