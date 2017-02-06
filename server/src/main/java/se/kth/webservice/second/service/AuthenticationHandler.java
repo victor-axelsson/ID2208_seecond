@@ -18,6 +18,11 @@ public class AuthenticationHandler implements SOAPHandler<SOAPMessageContext> {
     }
 
     public boolean handleMessage(SOAPMessageContext context) {
+        addTokenFromReturnToHeader(context);
+        return true;
+    }
+
+    private void addTokenFromReturnToHeader(SOAPMessageContext context) {
         try {
             SOAPBody body = context.getMessage().getSOAPBody();
             NodeList elementsByTagName = body.getElementsByTagName("return");
@@ -26,17 +31,12 @@ public class AuthenticationHandler implements SOAPHandler<SOAPMessageContext> {
                 SOAPHeader header = context.getMessage().getSOAPHeader();
                 QName headerName = new QName("http://service.second.webservice.kth.se/","token");
                 SOAPHeaderElement headerElement = header.addHeaderElement(headerName);
-                QName name = new QName("http://service.second.webservice.kth.se/","token");
-                SOAPElement symbol= headerElement.addChildElement(name);
-                symbol.addTextNode(token);
+                headerElement.addTextNode(token);
             }
 
         } catch (SOAPException e) {
             e.printStackTrace();
         }
-
-
-        return true;
     }
 
     public boolean handleFault(SOAPMessageContext context) {
