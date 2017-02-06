@@ -24,8 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _BookTicket_QNAME = new QName("http://service.second.webservice.kth.se/", "bookTicket");
-    private final static QName _BookTicketResponse_QNAME = new QName("http://service.second.webservice.kth.se/", "bookTicketResponse");
+    private final static QName _IssueTicket_QNAME = new QName("http://service.second.webservice.kth.se/", "issueTicket");
+    private final static QName _IssueTicketResponse_QNAME = new QName("http://service.second.webservice.kth.se/", "issueTicketResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: se.kth.webservice.second.service
@@ -35,45 +35,45 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link BookTicket_Type }
+     * Create an instance of {@link IssueTicket_Type }
      * 
      */
-    public BookTicket_Type createBookTicket_Type() {
-        return new BookTicket_Type();
+    public IssueTicket_Type createIssueTicket_Type() {
+        return new IssueTicket_Type();
     }
 
     /**
-     * Create an instance of {@link BookTicketResponse }
+     * Create an instance of {@link IssueTicketResponse }
      * 
      */
-    public BookTicketResponse createBookTicketResponse() {
-        return new BookTicketResponse();
+    public IssueTicketResponse createIssueTicketResponse() {
+        return new IssueTicketResponse();
     }
 
     /**
-     * Create an instance of {@link Booking }
+     * Create an instance of {@link Ticket }
      * 
      */
-    public Booking createBooking() {
-        return new Booking();
+    public Ticket createTicket() {
+        return new Ticket();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BookTicket_Type }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link IssueTicket_Type }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "bookTicket")
-    public JAXBElement<BookTicket_Type> createBookTicket(BookTicket_Type value) {
-        return new JAXBElement<BookTicket_Type>(_BookTicket_QNAME, BookTicket_Type.class, null, value);
+    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "issueTicket")
+    public JAXBElement<IssueTicket_Type> createIssueTicket(IssueTicket_Type value) {
+        return new JAXBElement<IssueTicket_Type>(_IssueTicket_QNAME, IssueTicket_Type.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BookTicketResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link IssueTicketResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "bookTicketResponse")
-    public JAXBElement<BookTicketResponse> createBookTicketResponse(BookTicketResponse value) {
-        return new JAXBElement<BookTicketResponse>(_BookTicketResponse_QNAME, BookTicketResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "issueTicketResponse")
+    public JAXBElement<IssueTicketResponse> createIssueTicketResponse(IssueTicketResponse value) {
+        return new JAXBElement<IssueTicketResponse>(_IssueTicketResponse_QNAME, IssueTicketResponse.class, null, value);
     }
 
 }

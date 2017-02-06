@@ -1,8 +1,6 @@
 package se.kth.webservice.second.service;
 
 import se.kth.webservice.second.data.FlightDatabase;
-import se.kth.webservice.second.models.Ticket;
-
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import java.sql.SQLException;
@@ -11,10 +9,10 @@ import java.sql.SQLException;
  * Created by Nick on 2/6/2017.
  */
 @WebService
-public class IssueTicket {
+public class IssueTicketImpl implements IssueTicket {
     FlightDatabase db;
 
-    public IssueTicket() {
+    public IssueTicketImpl() {
         this.db = new FlightDatabase();
     }
 

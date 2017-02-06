@@ -1,8 +1,8 @@
 
 
 import se.kth.webservice.second.service.AuthenticationImpl;
-import se.kth.webservice.second.data.FlightDatabase;
 import se.kth.webservice.second.service.BookTicket;
+import se.kth.webservice.second.service.IssueTicketImpl;
 import se.kth.webservice.second.service.Itinerary;
 
 import javax.xml.ws.Endpoint;
@@ -16,10 +16,12 @@ public class Main {
         AuthenticationImpl auth = new AuthenticationImpl();
         Itinerary itin = new Itinerary();
         BookTicket bookings = new BookTicket();
+        IssueTicketImpl issueTicket = new IssueTicketImpl();
 
         Endpoint.publish("http://localhost:9091/authentication", auth);
         Endpoint.publish("http://localhost:9091/itinerary", itin);
         Endpoint.publish("http://localhost:9091/bookings", bookings);
+        Endpoint.publish("http://localhost:9091/issues", issueTicket);
 
         //FlightDatabase db = new FlightDatabase();
         //db.mockSomeTickets();
