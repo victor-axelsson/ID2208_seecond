@@ -1,5 +1,7 @@
 package se.kth.webservice.second.data;
 
+import se.kth.webservice.second.models.Airline;
+import se.kth.webservice.second.models.Airport;
 import se.kth.webservice.second.models.Route;
 
 import java.sql.PreparedStatement;
@@ -47,5 +49,74 @@ public class FlightDatabase extends Database {
         }
 
         return routes;
+    }
+
+    /**
+     * @param id The primary key id of the airport
+     *
+     * */
+    public Airport getAirportById(int id){
+        Airport airport = null;
+
+        try {
+            PreparedStatement prepared = getPreparedStatement("select * from airports where id = ?");
+            prepared.setInt(1, id);
+
+            ResultSet rs = prepared.executeQuery();
+            while(rs.next()){
+               airport = new Airport();
+               airport.setId(rs.getInt(1));
+               airport.setName(rs.getString(2));
+               airport.setCity(rs.getString(3));
+               airport.setCountry(rs.getString(4));
+               airport.setIata(rs.getString(5));
+               airport.setIcao(rs.getString(6));
+               airport.setLat(rs.getFloat(7));
+               airport.setLng(rs.getFloat(8));
+               airport.setAltitudeFeet(rs.getInt(9));
+               airport.setTimezone(rs.getString(10));
+               airport.setDst(rs.getString(11));
+               airport.setTzDb(rs.getString(12));
+               airport.setType(rs.getString(13));
+               airport.setSource(rs.getString(14));
+
+               break;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            safeCloseConnection();
+        }
+
+        return airport;
+    }
+
+    public Airline getAirlineById(int id){
+        Airline airline = null;
+
+        try {
+            PreparedStatement prepared = getPreparedStatement("select * from airlines where id = ?");
+            prepared.setInt(1, id);
+
+            ResultSet rs = prepared.executeQuery();
+            while(rs.next()){
+                airline = new Airline();
+                airline.setId(rs.getInt(1));
+                airline.setName(rs.getString(2));
+                airline.setAlias(rs.getString(3));
+                airline.setIata(rs.getString(4));
+                airline.setIcao(rs.getString(5));
+                airline.setCallsign(rs.getString(6));
+                airline.setCountry(rs.getString(7));
+                airline.setActive(rs.getString(8));
+                break;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            safeCloseConnection();
+        }
+
+        return airline;
     }
 }

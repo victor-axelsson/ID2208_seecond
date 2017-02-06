@@ -1,6 +1,8 @@
 package se.kth.webservice.second.service;
 
 import se.kth.webservice.second.data.FlightDatabase;
+import se.kth.webservice.second.models.Airline;
+import se.kth.webservice.second.models.Airport;
 import se.kth.webservice.second.models.Route;
 
 import javax.jws.WebMethod;
@@ -26,4 +28,13 @@ public class Itinerary {
         return db.getRoute(from, to);
     }
 
+    @WebMethod
+    public Airport getAirportById(int id){
+        return db.getAirportById(id);
+    }
+
+    @WebMethod
+    public Airline getAirlineById(int id){
+        return db.getAirlineById(id);
+    }
 }

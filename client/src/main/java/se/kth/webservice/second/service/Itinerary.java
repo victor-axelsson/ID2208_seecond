@@ -43,4 +43,34 @@ public interface Itinerary {
         @WebParam(name = "arg1", targetNamespace = "")
         String arg1);
 
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns se.kth.webservice.second.service.Airport
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getAirportById", targetNamespace = "http://service.second.webservice.kth.se/", className = "se.kth.webservice.second.service.GetAirportById")
+    @ResponseWrapper(localName = "getAirportByIdResponse", targetNamespace = "http://service.second.webservice.kth.se/", className = "se.kth.webservice.second.service.GetAirportByIdResponse")
+    @Action(input = "http://service.second.webservice.kth.se/Itinerary/getAirportByIdRequest", output = "http://service.second.webservice.kth.se/Itinerary/getAirportByIdResponse")
+    public Airport getAirportById(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns se.kth.webservice.second.service.Airline
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getAirlineById", targetNamespace = "http://service.second.webservice.kth.se/", className = "se.kth.webservice.second.service.GetAirlineById")
+    @ResponseWrapper(localName = "getAirlineByIdResponse", targetNamespace = "http://service.second.webservice.kth.se/", className = "se.kth.webservice.second.service.GetAirlineByIdResponse")
+    @Action(input = "http://service.second.webservice.kth.se/Itinerary/getAirlineByIdRequest", output = "http://service.second.webservice.kth.se/Itinerary/getAirlineByIdResponse")
+    public Airline getAirlineById(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
+
 }

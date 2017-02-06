@@ -39,14 +39,15 @@ public class Main {
         authPort.testingHeaders(new TestingHeaders(), "abc123123");
 
 
-        List<Route> routes =  itineraryPort.getAvailableItineraries("ASF", "KZN");
+        Route route =  itineraryPort.getAvailableItineraries("YRT", "YEK").get(0);
+        Airport airportSource = itineraryPort.getAirportById(route.getSourceAirportId());
+        Airport airportDestination = itineraryPort.getAirportById(route.getDestinationAirportId());
+        Airline airline = itineraryPort.getAirlineById(route.getAirlineId());
 
-        String res2 = routes.get(0).toString();
+        
+
+        System.out.println("ALl done");
 
 
-        System.out.println();
-
-
-        System.out.println("I got the res: " + res);
     }
 }
