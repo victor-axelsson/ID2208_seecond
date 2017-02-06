@@ -5,6 +5,7 @@ import se.kth.webservice.second.models.Ticket;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+import java.sql.SQLException;
 
 /**
  * Created by Nick on 2/6/2017.
@@ -19,10 +20,15 @@ public class IssueTicket {
 
     @WebMethod
     public Ticket issueTicket(int bookingId){
-        //TODO check that the booking exists through db
         Ticket ticket = new Ticket();
         ticket.setBookingId(bookingId);
-        //TODO delete booking
-        return ticket;
+        try {
+            if (db.issueTicket(bookingId)) {
+                return ticket;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

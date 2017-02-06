@@ -193,6 +193,19 @@ public class FlightDatabase extends Database {
         return airline;
     }
 
+    public boolean issueTicket(int bookingId) throws SQLException {
+        PreparedStatement prepared = getPreparedStatement("select * from bookings where id = ?");
+        prepared.setInt(1, bookingId);
+        ResultSet resultSet = prepared.executeQuery();
+        if (resultSet.next()) {
+            PreparedStatement delete = getPreparedStatement("delete from bookings where id = ?");
+            delete.setInt(1, bookingId);
+            delete.executeQuery();
+            return true;
+        }
+        return false;
+    }
+
     public List<Departure> getDeparturesFromRouteId(int routeId) {
 
 
