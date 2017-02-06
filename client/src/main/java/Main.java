@@ -1,7 +1,5 @@
 import client.LoggingHandler;
-import se.kth.webservice.second.service.Authentication;
-import se.kth.webservice.second.service.Authentication_Service;
-import se.kth.webservice.second.service.TestingHeaders;
+import se.kth.webservice.second.service.*;
 
 import javax.annotation.Resource;
 import javax.xml.ws.BindingProvider;
@@ -21,21 +19,32 @@ public class Main {
     private static WebServiceContext context;
 
     public static void main(String[] args){
+
+        //Create service ports
         Authentication_Service service = new Authentication_Service();
-        Authentication port = service.getAuthenticationPort();
+        Authentication authPort = service.getAuthenticationPort();
+
+        ItineraryService itineraryService = new ItineraryService();
+        Itinerary itineraryPort =  itineraryService.getItineraryPort();
 
         //Add client handlers
-        Binding binding = ((BindingProvider)port).getBinding();
+        Binding binding = ((BindingProvider)authPort).getBinding();
         List<Handler> handlerList = binding.getHandlerChain();
         handlerList.add(new LoggingHandler());
         binding.setHandlerChain(handlerList);
 
 
         //Call functions
-        String res = port.login("victor@victor.com", "abc123");
-        port.testingHeaders(new TestingHeaders(), "abc123123");
+        String res = authPort.login("victor@victor.com", "abc123");
+        authPort.testingHeaders(new TestingHeaders(), "abc123123");
 
 
+        List<Route> routes =  itineraryPort.getAvailableItineraries("ASF", "KZN");
+
+        String res2 = routes.get(0).toString();
+
+
+        System.out.println();
 
 
         System.out.println("I got the res: " + res);

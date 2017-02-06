@@ -24,11 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _LoginResponse_QNAME = new QName("http://service.second.webservice.kth.se/", "loginResponse");
-    private final static QName _Token_QNAME = new QName("http://service.second.webservice.kth.se/", "token");
-    private final static QName _Login_QNAME = new QName("http://service.second.webservice.kth.se/", "login");
-    private final static QName _TestingHeadersResponse_QNAME = new QName("http://service.second.webservice.kth.se/", "testingHeadersResponse");
-    private final static QName _TestingHeaders_QNAME = new QName("http://service.second.webservice.kth.se/", "testingHeaders");
+    private final static QName _GetAvailableItinerariesResponse_QNAME = new QName("http://service.second.webservice.kth.se/", "getAvailableItinerariesResponse");
+    private final static QName _GetAvailableItineraries_QNAME = new QName("http://service.second.webservice.kth.se/", "getAvailableItineraries");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: se.kth.webservice.second.service
@@ -38,80 +35,45 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LoginResponse }
+     * Create an instance of {@link GetAvailableItineraries }
      * 
      */
-    public LoginResponse createLoginResponse() {
-        return new LoginResponse();
+    public GetAvailableItineraries createGetAvailableItineraries() {
+        return new GetAvailableItineraries();
     }
 
     /**
-     * Create an instance of {@link TestingHeaders }
+     * Create an instance of {@link GetAvailableItinerariesResponse }
      * 
      */
-    public TestingHeaders createTestingHeaders() {
-        return new TestingHeaders();
+    public GetAvailableItinerariesResponse createGetAvailableItinerariesResponse() {
+        return new GetAvailableItinerariesResponse();
     }
 
     /**
-     * Create an instance of {@link Login }
+     * Create an instance of {@link Route }
      * 
      */
-    public Login createLogin() {
-        return new Login();
+    public Route createRoute() {
+        return new Route();
     }
 
     /**
-     * Create an instance of {@link TestingHeadersResponse }
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAvailableItinerariesResponse }{@code >}}
      * 
      */
-    public TestingHeadersResponse createTestingHeadersResponse() {
-        return new TestingHeadersResponse();
+    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "getAvailableItinerariesResponse")
+    public JAXBElement<GetAvailableItinerariesResponse> createGetAvailableItinerariesResponse(GetAvailableItinerariesResponse value) {
+        return new JAXBElement<GetAvailableItinerariesResponse>(_GetAvailableItinerariesResponse_QNAME, GetAvailableItinerariesResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link LoginResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAvailableItineraries }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "loginResponse")
-    public JAXBElement<LoginResponse> createLoginResponse(LoginResponse value) {
-        return new JAXBElement<LoginResponse>(_LoginResponse_QNAME, LoginResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "token")
-    public JAXBElement<String> createToken(String value) {
-        return new JAXBElement<String>(_Token_QNAME, String.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Login }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "login")
-    public JAXBElement<Login> createLogin(Login value) {
-        return new JAXBElement<Login>(_Login_QNAME, Login.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TestingHeadersResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "testingHeadersResponse")
-    public JAXBElement<TestingHeadersResponse> createTestingHeadersResponse(TestingHeadersResponse value) {
-        return new JAXBElement<TestingHeadersResponse>(_TestingHeadersResponse_QNAME, TestingHeadersResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TestingHeaders }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "testingHeaders")
-    public JAXBElement<TestingHeaders> createTestingHeaders(TestingHeaders value) {
-        return new JAXBElement<TestingHeaders>(_TestingHeaders_QNAME, TestingHeaders.class, null, value);
+    @XmlElementDecl(namespace = "http://service.second.webservice.kth.se/", name = "getAvailableItineraries")
+    public JAXBElement<GetAvailableItineraries> createGetAvailableItineraries(GetAvailableItineraries value) {
+        return new JAXBElement<GetAvailableItineraries>(_GetAvailableItineraries_QNAME, GetAvailableItineraries.class, null, value);
     }
 
 }
