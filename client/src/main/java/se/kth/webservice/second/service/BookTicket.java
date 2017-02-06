@@ -26,6 +26,21 @@ public interface BookTicket {
 
     /**
      * 
+     * @param arg0
+     * @return
+     *     returns se.kth.webservice.second.service.Availability
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "checkAvailability", targetNamespace = "http://service.second.webservice.kth.se/", className = "se.kth.webservice.second.service.CheckAvailability")
+    @ResponseWrapper(localName = "checkAvailabilityResponse", targetNamespace = "http://service.second.webservice.kth.se/", className = "se.kth.webservice.second.service.CheckAvailabilityResponse")
+    @Action(input = "http://service.second.webservice.kth.se/BookTicket/checkAvailabilityRequest", output = "http://service.second.webservice.kth.se/BookTicket/checkAvailabilityResponse")
+    public Availability checkAvailability(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
+
+    /**
+     * 
      * @param arg1
      * @param arg0
      * @return

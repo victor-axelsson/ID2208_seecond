@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="destinationAirport" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="destinationAirportId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="equipment" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="sourceAirport" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="sourceAirportId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="stops" type="{http://www.w3.org/2001/XMLSchema}int"/>
@@ -41,6 +42,7 @@ import javax.xml.bind.annotation.XmlType;
     "destinationAirport",
     "destinationAirportId",
     "equipment",
+    "id",
     "sourceAirport",
     "sourceAirportId",
     "stops"
@@ -53,6 +55,7 @@ public class Route {
     protected String destinationAirport;
     protected int destinationAirportId;
     protected String equipment;
+    protected int id;
     protected String sourceAirport;
     protected int sourceAirportId;
     protected int stops;
@@ -183,6 +186,22 @@ public class Route {
      */
     public void setEquipment(String value) {
         this.equipment = value;
+    }
+
+    /**
+     * Gets the value of the id property.
+     * 
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the value of the id property.
+     * 
+     */
+    public void setId(int value) {
+        this.id = value;
     }
 
     /**

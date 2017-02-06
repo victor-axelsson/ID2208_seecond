@@ -190,16 +190,22 @@ public class FlightDatabase extends Database {
         return airline;
     }
 
-    public boolean issueTicket(int bookingId) throws SQLException {
+    public boolean issueTicket(int bookingId) {
         PreparedStatement prepared = getPreparedStatement("select * from bookings where id = ?");
-        prepared.setInt(1, bookingId);
-        ResultSet resultSet = prepared.executeQuery();
-        if (resultSet.next()) {
-            PreparedStatement delete = getPreparedStatement("delete from bookings where id = ?");
-            delete.setInt(1, bookingId);
-            delete.executeQuery();
-            return true;
+        try {
+            prepared.setInt(1, bookingId);
+            ResultSet resultSet = prepared.executeQuery();
+            if (resultSet.next()) {
+                PreparedStatement delete = getPreparedStatement("update bookings set issued = 1 where id = ?");
+                delete.setInt(1, bookingId);
+                delete.execute();
+                return true;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
         return false;
     }
 
@@ -251,5 +257,112 @@ public class FlightDatabase extends Database {
         }
 
         return booking;
+    }
+
+    public Departure getDepartureById(int departureId) {
+        Departure departure = null;
+
+        try {
+            PreparedStatement prepared = getPreparedStatement("select * from departures where id = ?");
+            prepared.setInt(1, departureId);
+
+            ResultSet rs = prepared.executeQuery();
+            while(rs.next()){
+                departure = new Departure();
+                departure.setId(rs.getInt(1));
+                departure.setLifts(rs.getString(2));
+                departure.setLands(rs.getString(3));
+                departure.setRouteId(rs.getInt(4));
+
+                break;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            safeCloseConnection();
+        }
+
+        return departure;
+    }
+
+    public int getBookingCount(int departureId) {
+        int bookingCount = 0;
+
+        try {
+            PreparedStatement prepared = getPreparedStatement("select count(*) as bookings from departures where id = ?");
+            prepared.setInt(1, departureId);
+
+            ResultSet rs = prepared.executeQuery();
+            while(rs.next()){
+
+                bookingCount = rs.getInt(1);
+
+                break;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            safeCloseConnection();
+        }
+
+        return bookingCount;
+    }
+
+    public Booking getBookingById(int bookingId) {
+        Booking booking = null;
+
+        try {
+            PreparedStatement prepared = getPreparedStatement("select * from bookings where id = ?");
+            prepared.setInt(1, bookingId);
+
+            ResultSet rs = prepared.executeQuery();
+            while(rs.next()){
+                booking = new Booking();
+                booking.setId(rs.getInt(1));
+                booking.setDepartureId(rs.getInt(2));
+                booking.setCardNumber(rs.getString(3));
+                booking.setIssued(rs.getBoolean(4));
+
+                break;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            safeCloseConnection();
+        }
+
+        return booking;
+    }
+
+    public Route getRouteById(int routeId) {
+        Route route = null;
+
+        try {
+            PreparedStatement prepared = getPreparedStatement("select * from routes where id = ?");
+            prepared.setInt(1, routeId);
+
+
+            ResultSet rs = prepared.executeQuery();
+            while(rs.next()){
+                route = new Route();
+                route.setId(rs.getInt(1));
+                route.setAirline(rs.getString(2));
+                route.setAirlineId(rs.getInt(3));
+                route.setSourceAirport(rs.getString(4));
+                route.setSourceAirportId(rs.getInt(5));
+                route.setDestinationAirport(rs.getString(6));
+                route.setDestinationAirportId(rs.getInt(7));
+                route.setCodeshare(rs.getString(8));
+                route.setStops(rs.getInt(9));
+                route.setEquipment(rs.getString(10));
+                break;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            safeCloseConnection();
+        }
+
+        return route;
     }
 }
