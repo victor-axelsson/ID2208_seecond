@@ -17,11 +17,11 @@ import javax.xml.ws.ResponseWrapper;
  * Generated source version: 2.2
  * 
  */
-@WebService(name = "IssueTicket", targetNamespace = "http://service.second.webservice.kth.se/")
+@WebService(name = "IssueTicketInterface", targetNamespace = "http://service.second.webservice.kth.se/")
 @XmlSeeAlso({
     ObjectFactory.class
 })
-public interface IssueTicket {
+public interface IssueTicketInterface {
 
 
     /**
@@ -34,7 +34,7 @@ public interface IssueTicket {
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "issueTicket", targetNamespace = "http://service.second.webservice.kth.se/", className = "se.kth.webservice.second.service.IssueTicket_Type")
     @ResponseWrapper(localName = "issueTicketResponse", targetNamespace = "http://service.second.webservice.kth.se/", className = "se.kth.webservice.second.service.IssueTicketResponse")
-    @Action(input = "http://service.second.webservice.kth.se/IssueTicket/issueTicketRequest", output = "http://service.second.webservice.kth.se/IssueTicket/issueTicketResponse")
+    @Action(input = "http://service.second.webservice.kth.se/IssueTicketInterface/issueTicketRequest", output = "http://service.second.webservice.kth.se/IssueTicketInterface/issueTicketResponse")
     public Ticket issueTicket(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0);

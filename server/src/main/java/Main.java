@@ -1,10 +1,7 @@
 
 
-import se.kth.webservice.second.service.AuthenticationImpl;
-import se.kth.webservice.second.service.BookTicket;
-import se.kth.webservice.second.service.IssueTicketImpl;
-import se.kth.webservice.second.service.IssueTicket;
-import se.kth.webservice.second.service.Itinerary;
+import se.kth.webservice.second.service.*;
+import se.kth.webservice.second.service.IssueTicketInterface;
 
 import javax.xml.ws.Endpoint;
 
@@ -17,7 +14,7 @@ public class Main {
         AuthenticationImpl auth = new AuthenticationImpl();
         Itinerary itin = new Itinerary();
         BookTicket bookings = new BookTicket();
-        IssueTicket tickets = new IssueTicket();
+        IssueTicketInterface tickets = new IssueTicket();
 
         Endpoint.publish("http://localhost:9091/authentication", auth);
         Endpoint.publish("http://localhost:9091/itinerary", itin);

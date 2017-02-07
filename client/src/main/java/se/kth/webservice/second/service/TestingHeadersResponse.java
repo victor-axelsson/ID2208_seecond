@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "testingHeadersResponse")
+@XmlType(namespace = "http://serviec.second.webservice.kth.se/", name = "testingHeadersResponse")
 public class TestingHeadersResponse {
 
 

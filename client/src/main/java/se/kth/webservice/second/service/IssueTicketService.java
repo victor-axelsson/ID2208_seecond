@@ -65,11 +65,11 @@ public class IssueTicketService
     /**
      * 
      * @return
-     *     returns IssueTicket
+     *     returns IssueTicketInterface
      */
     @WebEndpoint(name = "IssueTicketPort")
-    public IssueTicket getIssueTicketPort() {
-        return super.getPort(new QName("http://service.second.webservice.kth.se/", "IssueTicketPort"), IssueTicket.class);
+    public IssueTicketInterface getIssueTicketPort() {
+        return super.getPort(new QName("http://service.second.webservice.kth.se/", "IssueTicketPort"), IssueTicketInterface.class);
     }
 
     /**
@@ -77,11 +77,11 @@ public class IssueTicketService
      * @param features
      *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
-     *     returns IssueTicket
+     *     returns IssueTicketInterface
      */
     @WebEndpoint(name = "IssueTicketPort")
-    public IssueTicket getIssueTicketPort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://service.second.webservice.kth.se/", "IssueTicketPort"), IssueTicket.class, features);
+    public IssueTicketInterface getIssueTicketPort(WebServiceFeature... features) {
+        return super.getPort(new QName("http://service.second.webservice.kth.se/", "IssueTicketPort"), IssueTicketInterface.class, features);
     }
 
     private static URL __getWsdlLocation() {

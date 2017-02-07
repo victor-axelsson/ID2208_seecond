@@ -7,7 +7,6 @@ import javax.xml.ws.WebServiceContext;
 
 import javax.xml.ws.handler.Handler;
 import javax.xml.ws.Binding;
-import javax.xml.ws.BindingProvider;
 import java.util.List;
 
 /**
@@ -31,7 +30,7 @@ public class Main {
         BookTicket bookingPort = bookingService.getBookTicketPort();
 
         IssueTicketService ticketService = new IssueTicketService();
-        IssueTicket ticketPort = ticketService.getIssueTicketPort();
+        IssueTicketInterface ticketPort = ticketService.getIssueTicketPort();
 
 
         //Add client handlers

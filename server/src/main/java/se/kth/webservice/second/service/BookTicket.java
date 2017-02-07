@@ -21,11 +21,11 @@ public class BookTicket {
     }
 
     @WebMethod
-    public Availability checkAvailability(int departureId){
-        Departure departure = db.getDepartureById(departureId);
+    public se.kth.webservice.second.models.Availability checkAvailability(int departureId){
+        se.kth.webservice.second.models.Departure departure = db.getDepartureById(departureId);
         int bookingCount = db.getBookingCount(departureId);
 
-        Availability availability = new Availability();
+        se.kth.webservice.second.models.Availability availability = new se.kth.webservice.second.models.Availability();
         availability.setDeparture(departure);
         availability.setLabel("The departure is at: " + departure.getLifts() + " and lands at " + departure.getLands());
 
@@ -41,13 +41,13 @@ public class BookTicket {
     }
 
     @WebMethod
-    public Booking bookTicket(int flightId, String creditCard){
+    public se.kth.webservice.second.models.Booking bookTicket(int flightId, String creditCard){
 
-        Availability availability = checkAvailability(flightId);
+        se.kth.webservice.second.models.Availability availability = checkAvailability(flightId);
 
         if(availability.isAvailable()){
             //TODO check available places on flight by id
-            Booking booking = new Booking();
+            se.kth.webservice.second.models.Booking booking = new  se.kth.webservice.second.models.Booking();
             booking.setCardNumber(creditCard);
             booking.setDepartureId(flightId);
             booking.setIssued(false);
