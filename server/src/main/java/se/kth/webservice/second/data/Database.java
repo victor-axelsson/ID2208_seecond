@@ -10,10 +10,10 @@ import java.util.Random;
  * Created by victoraxelsson on 2017-02-06.
  */
 public abstract class Database {
-    private static final String JDBC_DRIVER = "org.postgresql.Driver";
-    private static final String DB_URL = "jdbc:postgresql://localhost:5432/id2208_2";
-    private static final String USER = "postgres";
-    private static final String PASS = "postgres";
+    private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+    private static final String DB_URL = "jdbc:mysql://localhost:8889/flights";
+    private static final String USER = "root";
+    private static final String PASS = "root";
     Connection connection;
     Random rand;
 
@@ -52,23 +52,19 @@ public abstract class Database {
 
     protected Connection getConnection(){
 
-        try {
-            if(connection == null || connection.isClosed()){
-                try {
-                    Class.forName(JDBC_DRIVER).newInstance();
-                    connection = DriverManager.getConnection(DB_URL, USER, PASS);
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } catch (InstantiationException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
+        if(connection == null){
+            try {
+                Class.forName(JDBC_DRIVER).newInstance();
+                connection = DriverManager.getConnection(DB_URL, USER, PASS);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
 
         return connection;
