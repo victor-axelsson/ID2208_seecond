@@ -1,0 +1,18 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <S:Body>
+        <ns2:checkAvailabilityResponse xmlns:ns2="http://service.second.webservice.kth.se/">
+            <return>
+                <available>true</available>
+                <departure>
+                    <id>446167</id>
+                    <lands>2017-04-11, 10:56</lands>
+                    <lifts>2017-04-11, 00:56</lifts>
+                    <routeId>43838</routeId>
+                </departure>
+                <label>The departure is at: 2017-04-11, 00:56 and lands at 2017-04-11, 10:56</label>
+                <price>1000.0</price>
+            </return>
+        </ns2:checkAvailabilityResponse>
+    </S:Body>
+</S:Envelope>

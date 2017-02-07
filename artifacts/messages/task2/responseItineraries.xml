@@ -1,0 +1,43 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <S:Body>
+        <ns2:getAvailableItinerariesResponse xmlns:ns2="http://service.second.webservice.kth.se/">
+            <return>
+                <from>&quot;Egilsstaðir Airport&quot;</from>
+                <label>Travel from &quot;Egilsstaðir Airport&quot; and land in &quot;Reykjavik Airport&quot;</label>
+                <next>
+                    <from>&quot;Reykjavik Airport&quot;</from>
+                    <label>Travel from &quot;Reykjavik Airport&quot; and land in &quot;Godthaab / Nuuk Airport&quot;</label>
+                    <next>
+                        <from>&quot;Godthaab / Nuuk Airport&quot;</from>
+                        <label>Travel from &quot;Godthaab / Nuuk Airport&quot; and land in &quot;Keflavik International Airport&quot;</label>
+                        <next>
+                            <from>&quot;Keflavik International Airport&quot;</from>
+                            <label>Travel from &quot;Keflavik International Airport&quot; and land in &quot;Washington Dulles International Airport&quot;</label>
+                            <next>
+                                <from>&quot;Washington Dulles International Airport&quot;</from>
+                                <label>Travel from &quot;Washington Dulles International Airport&quot; and land in &quot;Ottawa Macdonald-Cartier International Airport&quot;</label>
+                                <next>
+                                    <from>&quot;Ottawa Macdonald-Cartier International Airport&quot;</from>
+                                    <label>Travel from &quot;Ottawa Macdonald-Cartier International Airport&quot; and land in &quot;Iqaluit Airport&quot;</label>
+                                    <routeId>2064</routeId>
+                                    <to>&quot;Iqaluit Airport&quot;</to>
+                                </next>
+                                <routeId>7928</routeId>
+                                <to>&quot;Ottawa Macdonald-Cartier International Airport&quot;</to>
+                            </next>
+                            <routeId>24755</routeId>
+                            <to>&quot;Washington Dulles International Airport&quot;</to>
+                        </next>
+                        <routeId>29993</routeId>
+                        <to>&quot;Keflavik International Airport&quot;</to>
+                    </next>
+                    <routeId>43844</routeId>
+                    <to>&quot;Godthaab / Nuuk Airport&quot;</to>
+                </next>
+                <routeId>43838</routeId>
+                <to>&quot;Reykjavik Airport&quot;</to>
+            </return>
+        </ns2:getAvailableItinerariesResponse>
+    </S:Body>
+</S:Envelope>

@@ -1,0 +1,8 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <S:Body>
+        <ns2:getDeparturesFromRoute xmlns:ns2="http://service.second.webservice.kth.se/">
+            <arg0>43838</arg0>
+        </ns2:getDeparturesFromRoute>
+    </S:Body>
+</S:Envelope>

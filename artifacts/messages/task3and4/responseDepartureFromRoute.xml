@@ -1,0 +1,31 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <S:Body>
+        <ns2:getDeparturesFromRouteResponse xmlns:ns2="http://service.second.webservice.kth.se/">
+            <return>
+                <id>446167</id>
+                <lands>2017-04-11, 10:56</lands>
+                <lifts>2017-04-11, 00:56</lifts>
+                <routeId>43838</routeId>
+            </return>
+            <return>
+                <id>446168</id>
+                <lands>2017-04-15, 11:53</lands>
+                <lifts>2017-04-15, 09:10</lifts>
+                <routeId>43838</routeId>
+            </return>
+            <return>
+                <id>446169</id>
+                <lands>2017-02-08, 21:53</lands>
+                <lifts>2017-02-08, 10:02</lifts>
+                <routeId>43838</routeId>
+            </return>
+            <return>
+                <id>446170</id>
+                <lands>2017-10-09, 21:43</lands>
+                <lifts>2017-10-09, 21:13</lifts>
+                <routeId>43838</routeId>
+            </return>
+        </ns2:getDeparturesFromRouteResponse>
+    </S:Body>
+</S:Envelope>

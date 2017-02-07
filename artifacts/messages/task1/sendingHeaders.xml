@@ -1,0 +1,8 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <S:Header>
+        <ns2:token xmlns:ns2="http://service.second.webservice.kth.se/">abc123123</ns2:token>
+    </S:Header>
+    <S:Body>
+        <ns2:testingHeaders xmlns:ns2="http://service.second.webservice.kth.se/"/>
+    </S:Body>
+</S:Envelope>
