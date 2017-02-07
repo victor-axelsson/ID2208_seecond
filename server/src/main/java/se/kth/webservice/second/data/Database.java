@@ -10,10 +10,10 @@ import java.util.Random;
  * Created by victoraxelsson on 2017-02-06.
  */
 public abstract class Database {
-    private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:8889/flights";
-    private static final String USER = "root";
-    private static final String PASS = "root";
+    private static final String JDBC_DRIVER = "org.postgresql.Driver";
+    private static final String DB_URL = "jdbc:postgresql://localhost:5432/id2208_2";
+    private static final String USER = "postgres";
+    private static final String PASS = "postgres";
     Connection connection;
     Random rand;
 

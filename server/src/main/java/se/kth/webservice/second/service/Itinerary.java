@@ -24,22 +24,22 @@ public class Itinerary {
     }
 
     @WebMethod
-    public List<TravelPath> getAvailableItineraries(String fromAirportId, String toAirportId){
+    public List<se.kth.webservice.second.models.TravelPath> getAvailableItineraries(String fromAirportId, String toAirportId){
         return neoDB.getRoutes(fromAirportId, toAirportId);
     }
 
     @WebMethod
-    public Airport getAirportById(int id){
+    public se.kth.webservice.second.models.Airport getAirportById(int id){
         return db.getAirportById(id);
     }
 
     @WebMethod
-    public Airline getAirlineById(int id){
+    public se.kth.webservice.second.models.Airline getAirlineById(int id){
         return db.getAirlineById(id);
     }
 
     @WebMethod
-    public List<Departure> getDeparturesFromRoute(int routeId){
+    public List<se.kth.webservice.second.models.Departure> getDeparturesFromRoute(int routeId){
         return db.getDeparturesFromRouteId(routeId);
     }
 

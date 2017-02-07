@@ -1,8 +1,8 @@
 
 
-import se.kth.webservice.second.data.FlightDatabase;
-import se.kth.webservice.second.service.Authentication;
+import se.kth.webservice.second.service.AuthenticationImpl;
 import se.kth.webservice.second.service.BookTicket;
+import se.kth.webservice.second.service.IssueTicketImpl;
 import se.kth.webservice.second.service.IssueTicket;
 import se.kth.webservice.second.service.Itinerary;
 
@@ -14,7 +14,7 @@ import javax.xml.ws.Endpoint;
 public class Main {
 
     public static void main(String[] args){
-        Authentication auth = new Authentication();
+        AuthenticationImpl auth = new AuthenticationImpl();
         Itinerary itin = new Itinerary();
         BookTicket bookings = new BookTicket();
         IssueTicket tickets = new IssueTicket();
