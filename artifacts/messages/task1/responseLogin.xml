@@ -1,0 +1,10 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header>
+        <token xmlns="http://service.second.webservice.kth.se/">6v5b2c34vqtmdtma835sbrrof</token>
+    </SOAP-ENV:Header>
+    <S:Body>
+        <ns2:loginResponse xmlns:ns2="http://service.second.webservice.kth.se/">
+            <return>6v5b2c34vqtmdtma835sbrrof</return>
+        </ns2:loginResponse>
+    </S:Body>
+</S:Envelope>

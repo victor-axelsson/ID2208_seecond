@@ -1,0 +1,46 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <S:Body>
+        <ns2:issueTicketResponse xmlns:ns2="http://service.second.webservice.kth.se/">
+            <return>
+                <airline>
+                    <active>Y</active>
+                    <alias/>
+                    <callsign>FAXI</callsign>
+                    <country>Iceland</country>
+                    <iata>NY</iata>
+                    <icao>FXI</icao>
+                    <id>896</id>
+                    <name>Air Iceland</name>
+                </airline>
+                <booking>
+                    <cardNumber>123123123123123123</cardNumber>
+                    <departureId>446167</departureId>
+                    <id>14</id>
+                    <issued>true</issued>
+                </booking>
+                <departure>
+                    <id>446167</id>
+                    <lands>2017-04-11, 10:56</lands>
+                    <lifts>2017-04-11, 00:56</lifts>
+                    <routeId>43838</routeId>
+                </departure>
+                <id>0</id>
+                <price>1000.0</price>
+                <route>
+                    <airline>NY</airline>
+                    <airlineId>896</airlineId>
+                    <codeshare/>
+                    <destinationAirport>RKV</destinationAirport>
+                    <destinationAirportId>18</destinationAirportId>
+                    <equipment>F50 DH8
+                    </equipment>
+                    <id>43838</id>
+                    <sourceAirport>EGS</sourceAirport>
+                    <sourceAirportId>12</sourceAirportId>
+                    <stops>0</stops>
+                </route>
+            </return>
+        </ns2:issueTicketResponse>
+    </S:Body>
+</S:Envelope>

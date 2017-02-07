@@ -1,0 +1,9 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <S:Body>
+        <ns2:login xmlns:ns2="http://service.second.webservice.kth.se/">
+            <arg0>victor@victor.com</arg0>
+            <arg1>abc123</arg1>
+        </ns2:login>
+    </S:Body>
+</S:Envelope>

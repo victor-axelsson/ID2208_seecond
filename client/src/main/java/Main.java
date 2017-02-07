@@ -17,6 +17,13 @@ public class Main {
     @Resource
     private static WebServiceContext context;
 
+    private static void addLogger(BindingProvider bindingProvider){
+        Binding binding = bindingProvider.getBinding();
+        List<Handler> handlerList = binding.getHandlerChain();
+        handlerList.add(new LoggingHandler());
+        binding.setHandlerChain(handlerList);
+    }
+
     public static void main(String[] args){
 
         //Create service ports
@@ -33,11 +40,19 @@ public class Main {
         IssueTicketInterface ticketPort = ticketService.getIssueTicketPort();
 
 
+        //Add all logging of messages
+        addLogger((BindingProvider)authPort);
+        addLogger((BindingProvider)itineraryPort);
+        addLogger((BindingProvider)bookingPort);
+        addLogger((BindingProvider)ticketPort);
+
+        /*
         //Add client handlers
         Binding binding = ((BindingProvider)authPort).getBinding();
         List<Handler> handlerList = binding.getHandlerChain();
         handlerList.add(new LoggingHandler());
         binding.setHandlerChain(handlerList);
+        */
 
 
         // Call functions //
